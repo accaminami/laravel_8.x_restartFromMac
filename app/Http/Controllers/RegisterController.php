@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\Fluent\Concerns\Has;
 use Illuminate\Auth\Events\Registered;
+use App\Http\Requests\UserRegistPost;
 
 class RegisterController extends Controller
 {
@@ -17,8 +18,10 @@ class RegisterController extends Controller
         return view('regist.register');
     }
 
-    public function store (Request $request)
+    //public function store (Request $request)
+    public function store (UserRegistPost $request)
     {
+        /*
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -39,6 +42,7 @@ class RegisterController extends Controller
             'password.min' => 'パスワードは8以上だよん',
 
         ]);
+        */
 
         $user = User::create([
             'name' => $request->name,
