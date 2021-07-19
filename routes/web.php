@@ -33,3 +33,4 @@ Route::get('/jsonpaction', [App\Http\Controllers\JsonpAction::class, 'index']);
 Route::get('/downloadaction', [App\Http\Controllers\DownloadAction::class, 'index']);
 Route::get('/redirectaction', [App\Http\Controllers\RedirectAction::class, 'index']);
 Route::get('/streamaction', [App\Http\Controllers\StreamAction::class, 'index']);
+Route::get('/payload', [App\Http\Controllers\ArticlePayloadAction::class, 'index']);
