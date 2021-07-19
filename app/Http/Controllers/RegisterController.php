@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\Fluent\Concerns\Has;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Requests\UserRegistPost;
+use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -43,6 +45,21 @@ class RegisterController extends Controller
 
         ]);
         */
+
+        $rules = [
+        ];
+        $inputs = $request->all();
+
+        $validator = Validator::make($inputs, $rules);
+        $validator->sometimes(
+            'name',
+            'integer|min:18',
+            function ($inputs){
+                return $inputs->mailmagazine === 'allow';
+            }
+        );
+
+        print_r($inputs);
 
         $user = User::create([
             'name' => $request->name,

@@ -25,3 +25,11 @@ Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'authenticate'])->middleware('guest');
 Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::get('/textaction', [App\Http\Controllers\TextAction::class, 'index']);
+Route::get('/viewaction', [App\Http\Controllers\ViewAction::class, 'index']);
+Route::get('/jsonaction', [App\Http\Controllers\JsonAction::class, 'index']);
+Route::get('/jsonpaction', [App\Http\Controllers\JsonpAction::class, 'index']);
+Route::get('/downloadaction', [App\Http\Controllers\DownloadAction::class, 'index']);
+Route::get('/redirectaction', [App\Http\Controllers\RedirectAction::class, 'index']);
+Route::get('/streamaction', [App\Http\Controllers\StreamAction::class, 'index']);
