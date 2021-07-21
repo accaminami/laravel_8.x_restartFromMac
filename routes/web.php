@@ -34,3 +34,6 @@ Route::get('/downloadaction', [App\Http\Controllers\DownloadAction::class, 'inde
 Route::get('/redirectaction', [App\Http\Controllers\RedirectAction::class, 'index']);
 Route::get('/streamaction', [App\Http\Controllers\StreamAction::class, 'index']);
 Route::get('/payload', [App\Http\Controllers\ArticlePayloadAction::class, 'index']);
+
+Route::get('/author', [App\Http\Controllers\AuthorController::class, 'index']);
+Route::get('/book', [App\Http\Controllers\BookController::class, 'index']);
