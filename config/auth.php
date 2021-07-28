@@ -69,6 +69,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+
+            //独自の認証ドライバー指定例
+            //'driver' => 'cache_eloquent',
+            //'model' => App\Models\User::class,
         ],
 
         // 'users' => [
