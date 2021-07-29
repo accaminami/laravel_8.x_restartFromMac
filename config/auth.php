@@ -41,10 +41,19 @@ return [
             'provider' => 'users',
         ],
 
+        //'api' => [
+        //    'driver' => 'token',
+        //    'provider' => 'users',
+        //    'hash' => false,
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
+            'provider' => 'user_token',
+            //URLリクエストパラメータをapi_tokenからtに変更
+            'input_key' => 't',
+            //データベースなどで利用する絡むをapi_tokenからtokenに変更
+            'storage_key' => 'token',
+            //hashを有効にするとデータベースなどへ問い合わせにsha256でハッシュ化されたトークンを利用
+            'hash' => true,
         ],
     ],
 
@@ -66,6 +75,9 @@ return [
     */
 
     'providers' => [
+        'user_token' => [
+            'driver' => 'user_token'
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
