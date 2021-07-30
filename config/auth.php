@@ -16,6 +16,8 @@ return [
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
+        //'guard' => 'api',
+        //'password' => 'users',
     ],
 
     /*
@@ -55,6 +57,10 @@ return [
             //hashを有効にするとデータベースなどへ問い合わせにsha256でハッシュ化されたトークンを利用
             'hash' => true,
         ],
+        'jwt' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ]
     ],
 
     /*
