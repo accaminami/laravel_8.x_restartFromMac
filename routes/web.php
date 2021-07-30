@@ -21,7 +21,7 @@ use App\Events\PublishProcessor;
 Route::get('/', function(){
     $view = view('welcome');
     //Dispatcherクラス経由でEventを実行する場合
-    Event::dispatch(new PublishProcessor(373));
+    //Event::dispatch(new PublishProcessor(373));
 });
 
 Route::get('/dashboard', function () {
