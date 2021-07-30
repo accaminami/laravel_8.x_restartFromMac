@@ -21,7 +21,7 @@ use App\Events\PublishProcessor;
 Route::get('/', function(){
     $view = view('welcome');
     //Dispatcherクラス経由でEventを実行する場合
-    //Event::dispatch(new PublishProcessor(373));
+    Event::dispatch(new PublishProcessor(373));
 });
 
 Route::get('/dashboard', function () {
@@ -49,6 +49,9 @@ Route::get('/dashboard', function () {
 //Route::get('/author', [App\Http\Controllers\AuthorController::class, 'index']);
 //Route::get('/book', [App\Http\Controllers\BookController::class, 'index']);
 Route::get('/userpurchasebook', [App\Usecase\UserPurchasedBook::class, 'run']);
+
+Route::get('/pdf', \App\Http\Controllers\PdfGeneratorAction::class);
+
 
 require __DIR__.'/auth.php';
 
