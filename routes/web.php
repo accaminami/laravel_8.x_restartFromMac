@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Event;
+use App\Events\PublishProcessor;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', function(){
+    $view = view('welcome');
+    //Dispatcherクラス経由でEventを実行する場合
+    Event::dispatch(new PublishProcessor(373));
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-
-
-
 
 //Route::get('/home', function () {
 //        return view('home');
@@ -45,7 +48,7 @@ Route::get('/dashboard', function () {
 //Route::get('/payload', [App\Http\Controllers\ArticlePayloadAction::class, 'index']);
 //Route::get('/author', [App\Http\Controllers\AuthorController::class, 'index']);
 //Route::get('/book', [App\Http\Controllers\BookController::class, 'index']);
-
+Route::get('/userpurchasebook', [App\Usecase\UserPurchasedBook::class, 'run']);
 
 require __DIR__.'/auth.php';
 
