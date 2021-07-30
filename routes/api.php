@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::post('/publishers', [App\Http\Controllers\PublisherAction::class,'create']);
-Route::get('/users', [App\Http\Controllers\UserAction::class,'index']);
-Route::group(['middleware' => 'api'],function($router){
-    Route::post('/users/login', 'App\Http\Controllers\User\LoginAction::class');
-    Route::post('/users/', 'App\Http\Controllers\User\RetrieveAction::class')->middleware('auth:jwt');
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//Route::post('/publishers', [App\Http\Controllers\PublisherAction::class,'create']);
+//Route::get('/users', [App\Http\Controllers\UserAction::class,'index']);
+//Route::group(['middleware' => 'api'],function($router){
+//    Route::post('/users/login', 'App\Http\Controllers\User\LoginAction::class');
+//    Route::post('/users/', 'App\Http\Controllers\User\RetrieveAction::class')->middleware('auth:jwt');
+//});
